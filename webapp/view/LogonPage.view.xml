@@ -12,7 +12,7 @@
                                     <items>
                                         <VBox>
                                             <Label text="Login:"/>
-                                            <Input id="idLoginInput" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter login..."/>
+                                            <Input id="idLoginInput" class="input sapUiSmallMarginBottom" type="Text" placeholder="Enter login..."/>
                                         </VBox>
                                     </items>
                                 </FlexBox>
@@ -20,19 +20,25 @@
                                     <items>
                                         <VBox>
                                             <Label text="Password:"/>
-                                            <Input id="idPasswordInput" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter password..."/>
+                                            <Input id="idPasswordInput" class="input sapUiSmallMarginBottom" type="Password" placeholder="Enter password..." />
                                         </VBox>
                                     </items>
                                 </FlexBox>
-                                <FlexBox alignItems="Center" justifyContent="Center" height="50px" width="100%">
+                                <FlexBox id="idFlexBoxLoginButton" alignItems="Center" justifyContent="Center" height="50px" width="100%">
                                     <items>
-                                        <Button text="Login" press="onLogin" type="Accept"/>
+                                        <Button class="button" text="Login" press="onLoginAuth" type="Accept" icon="sap-icon://visits" iconFirst="true"/>
                                     </items>
                                 </FlexBox>
                             </VBox>
                         </items>
                     </FlexBox>
                 </content>
+                <footer>
+                    <Toolbar height="20px">
+                        <ToolbarSpacer/>
+                        <Text text="Designed by Mikołaj Jakś" class="fontSizeSmall" />
+                    </Toolbar>
+                </footer>
             </Page>
         </pages>
     </App>

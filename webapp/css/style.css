@@ -1,0 +1,9 @@
+input {
+    border-radius: 20px;
+    }
+button {
+    border-radius: 20px !important;
+ }
+ fontSizeSmall {
+    font-size: 3px !important;
+ }
