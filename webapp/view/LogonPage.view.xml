@@ -1,9 +1,9 @@
 <mvc:View controllerName="app.webapp.controller.LogonPage" 
     xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
-    <App>
+    <App id="app">
         <pages>
-            <Page title="Login" class="sapUiContentPadding">
+            <Page title="Login" class="sapUiContentPadding myBackgroundStyle">
                 <content>
                     <FlexBox alignItems="Center" justifyContent="Center" height="100%" width="100%">
                         <items>
@@ -11,16 +11,16 @@
                                 <FlexBox alignItems="Center" justifyContent="Center" height="70px" width="100%">
                                     <items>
                                         <VBox>
-                                            <Label text="Login:"/>
-                                            <Input id="idLoginInput" class="input sapUiSmallMarginBottom" type="Text" placeholder="Enter login..."/>
+                                            <Label text="Login:" class="fontColorWhite"/>
+                                            <Input id="idLoginInput" class="input sapUiSmallMarginBottom" type="Text" placeholder="Enter login..." submit="onLoginAuth"/>
                                         </VBox>
                                     </items>
                                 </FlexBox>
                                 <FlexBox alignItems="Center" justifyContent="Center" height="70px" width="100%">
                                     <items>
                                         <VBox>
-                                            <Label text="Password:"/>
-                                            <Input id="idPasswordInput" class="input sapUiSmallMarginBottom" type="Password" placeholder="Enter password..." />
+                                            <Label text="Password:" class="fontColorWhite"/>
+                                            <Input id="idPasswordInput" class="input sapUiSmallMarginBottom" type="Password" placeholder="Enter password..." submit="onLoginAuth" />
                                         </VBox>
                                     </items>
                                 </FlexBox>

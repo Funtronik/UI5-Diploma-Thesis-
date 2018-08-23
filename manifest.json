@@ -31,13 +31,15 @@
 		},
 		"supportedThemes": [
 			"sap_hcb",
-			"sap_belize"
+			"sap_belize",
+			"sap_bluecrystal"
 		]
 	},
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "app.webapp.view.LogonPage",
-			"type": "XML"
+			"type": "XML",
+			"id" : "app"
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
@@ -70,38 +72,31 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"async": true,
-				"viewPath": "app.webapp",
+				"viewPath": "app.webapp.view",
+				"controlId": "app",
 				"controlAggregation": "pages",
-				"controlId": "idAppControl",
-				"clearControlAggregation": false
+				"async": true
 			},
 			"routes": [
 				{
-					"name": "RouteView1",
-					"pattern": "RouteView1",
-					"target": [
-						"TargetView1"
-					]
+				  "pattern": "",
+				  "name": "logonpage",
+				  "target": "logonpage"
 				},
 				{
-					"name": "Launchpad",
-					"pattern": "Launchpad",
-					"target": "TargetLaunchpad"
+				  "pattern": "launchpad",
+				  "name": "launchpad",
+				  "target": "launchpad"
 				}
-			],
+			  ],
 			"targets": {
-				"TargetView1": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewName": "view.LogonPage"
+				"logonpage": {
+					"viewId": "logonPage",
+					"viewName": "LogonPage"
 				},
-				"TargetLaunchpad": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewName": "view.Launchpad"
+				"launchpad": {
+					"viewId": "launchpad",
+					"viewName": "Launchpad"
 				}
 			}
 		}
