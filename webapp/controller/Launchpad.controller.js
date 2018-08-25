@@ -5,7 +5,11 @@ sap.ui.define([
     return Controller.extend("app.webapp.controller.Launchpad", {
 
         onAfterRendering() {
-            var dupa="";
+            // var olist = this.getView().byId('list');
+            // olist.setModel(oModel);
+            // olist.getModel().refresh(true);
+            var oModel = sap.ui.getCore().getModel('data');
+           
         },
         onShowHello : function () {
            // show a native JavaScript alert

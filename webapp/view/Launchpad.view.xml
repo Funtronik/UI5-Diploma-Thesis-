@@ -4,13 +4,15 @@
     <App id="Launchpad">
         <Page title="{i18n>LaunchpadTitle}">
             <content>
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Fulfillment Application Title" subheader="Subtitle" press="press">
+                <!-- <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Fulfillment Application Title" subheader="Subtitle" press="press">
                     <TileContent unit="EUR" footer="Current Quarter">
                         <ImageContent src="sap-icon://home-share" />
                     </TileContent>
-                </GenericTile>
+                </GenericTile> -->
 
-                
+                <List id="list" headerText="Products" items="{path: '/data/temperatures'}">
+                    <StandardListItem title="{id}"/>
+                </List>
             </content>
         </Page>
     </App>

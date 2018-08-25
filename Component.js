@@ -24,7 +24,7 @@ sap.ui.define([
 			this.getRouter().initialize();
 
 			// set the device model
-			sap.ui.getCore().setModel(models.createDataModel(), "data");
+			sap.ui.getCore().setModel(models.createDataModel(), 'data');
 		}
 	});
 });

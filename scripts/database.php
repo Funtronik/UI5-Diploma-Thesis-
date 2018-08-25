@@ -23,5 +23,5 @@ if ($conn->connect_error) {
  array('id'=>$row[0],'data'=>$row[1],'time'=>$row[2],'temp'=>$row[3],'dummy1'=>$row[4],'dummy2'=>$row[5]));
  }
  
- echo json_encode(array('result'=>$result));
+ echo json_encode(array('temperatures'=>$result));
 ?>
