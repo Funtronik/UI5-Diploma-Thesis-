@@ -9,6 +9,10 @@
                         <NumericContent value="ON" numberState="{=	${LivingroomLight>State} == 'OFF' ? 'Error' : 'Success' }" icon="sap-icon://lightbulb"/>
                     </TileContent>
                 </GenericTile>
+
+                <List id="list" headerText="Products" items="{path: '/temperatures'}">
+                    <StandardListItem title="{id}"/>
+                </List>
             </content>
         </Page>
     </App>

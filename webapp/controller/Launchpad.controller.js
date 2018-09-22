@@ -3,13 +3,13 @@ sap.ui.define([
  ], function (Controller) {
     "use strict";
     return Controller.extend("app.webapp.controller.Launchpad", {
-
-        onAfterRendering() {
-            // var olist = this.getView().byId('list');
-            // olist.setModel(oModel);
-            // olist.getModel().refresh(true);
-            var oModel = sap.ui.getCore().getModel('data');
-           
+        onInit: function() {
+           var globalData =  sap.ui.getCore().getModel('data');
+            this.getView().setModel(globalData);
+        },
+        onAfterRendering: function() {
+             var olist = this.getView().byId('list');
+             var oModel = sap.ui.getCore().getModel('data');
         },
         onShowHello : function () {
            // show a native JavaScript alert
