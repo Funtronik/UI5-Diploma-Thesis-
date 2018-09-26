@@ -1,19 +1,27 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
- ], function (Controller) {
+], function (Controller) {
     "use strict";
     return Controller.extend("app.webapp.controller.Launchpad", {
-        onInit: function() {
-           var globalData =  sap.ui.getCore().getModel('data');
-            this.getView().setModel(globalData);
+        globalData: null,
+        onInit: function () {
+            this.globalData = sap.ui.getCore().getModel('data');
+            this.getView().setModel(this.globalData);
         },
-        onAfterRendering: function() {
-             var olist = this.getView().byId('list');
-             var oModel = sap.ui.getCore().getModel('data');
+        onAfterRendering: function () {
+            var oLivingroomTile = this.getView().byId('idLivingroomTile'),
+                status = this.globalData.getProperty("/lights");
+            $.each(status, function (index, value) {
+                if (status[index].name === "Livingroom") {
+                    
+                }
+            })
         },
-        onShowHello : function () {
-           // show a native JavaScript alert
-           alert("Hello World");
+        setTileStatus: function (value) {
+            if (value === "0")
+                return "Error";
+            else
+                return "Succes";
         }
-     });
- });
+    });
+});

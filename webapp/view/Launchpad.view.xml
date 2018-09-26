@@ -4,15 +4,27 @@
     <App id="Launchpad">
         <Page title="{i18n>LaunchpadTitle}">
             <content>
-                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Livingroom Light" press="onLivinfroomLight">
-                    <TileContent >
-                        <NumericContent value="ON" numberState="{=	${LivingroomLight>State} == 'OFF' ? 'Error' : 'Success' }" icon="sap-icon://lightbulb"/>
-                    </TileContent>
-                </GenericTile>
-
-                <List id="list" headerText="Products" items="{path: '/temperatures'}">
-                    <StandardListItem title="{id}"/>
-                </List>
+                <Panel>
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title level="H2" text="Lights" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <FlexBox alignItems="Start" justifyContent="Start">
+                        <items>
+                            <StandardTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Livingroom Light" press="onLivinfroomLight"
+                            info="info"
+                            infoState="Error"
+                            icon="sap-icon://lightbulb"/>
+                            
+                        </items>
+                    </FlexBox>
+                </Panel>
+                <Panel>
+                    <List id="list" headerText="Products" items="{path: '/temperatures'}">
+                        <StandardListItem title="{id}" description="{temp}"/>
+                    </List>
+                </Panel>
             </content>
         </Page>
     </App>
