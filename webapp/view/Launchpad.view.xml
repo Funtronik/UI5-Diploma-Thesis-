@@ -16,8 +16,6 @@
                             info="info"
                             infoState="Error"
                             icon="sap-icon://lightbulb"/>
-                            
-                            
                         </items>
                     </FlexBox>
                 </Panel>
