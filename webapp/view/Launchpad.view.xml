@@ -12,16 +12,10 @@
                     </headerToolbar>
                     <FlexBox alignItems="Start" justifyContent="Start">
                         <items>
-                            <StandardTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Livingroom Light" press="onLivinfroomLight"
+                            <StandardTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Livingroom Light" press="reloadRepo"
                             info="info"
                             infoState="Error"
                             icon="sap-icon://lightbulb"/>
-
-                            <StandardTile id="idReloadTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Reload" press="onLivinfroomLight"
-                            info="info"
-                            infoState="Error"
-                            icon="sap-icon://lightbulb"
-                            press="reloadRepo"/>
                         </items>
                     </FlexBox>
                     <!-- Cipka Cipka -->
