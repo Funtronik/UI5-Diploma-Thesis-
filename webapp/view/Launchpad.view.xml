@@ -16,6 +16,12 @@
                             info="info"
                             infoState="Error"
                             icon="sap-icon://lightbulb"/>
+
+                            <StandardTile id="idReloadTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Reload" press="onLivinfroomLight"
+                            info="info"
+                            infoState="Error"
+                            icon="sap-icon://lightbulb"
+                            press="reloadRepo"/>
                         </items>
                     </FlexBox>
                     <!-- Cipka Cipka -->

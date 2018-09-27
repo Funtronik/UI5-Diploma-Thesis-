@@ -17,6 +17,12 @@ sap.ui.define([
                 }
             })
         },
+        reloadRepo: function() {
+            $.ajax({
+                type: "POST",
+                url: "./scripts/lolo.py"
+            });
+        },
         setTileStatus: function (value) {
             if (value === "0")
                 return "Error";
