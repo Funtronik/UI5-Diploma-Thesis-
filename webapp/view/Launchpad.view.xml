@@ -18,6 +18,7 @@
                             icon="sap-icon://lightbulb"/>
                         </items>
                     </FlexBox>
+                    <!-- Cipka Cipka -->
                 </Panel>
                 <Panel>
                     <List id="list" headerText="Products" items="{path: '/temperatures'}">
