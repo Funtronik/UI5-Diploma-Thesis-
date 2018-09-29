@@ -12,13 +12,9 @@
                     </headerToolbar>
                     <FlexBox alignItems="Start" justifyContent="Start">
                         <items>
-                            <StandardTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" title="Livingroom Light" press="reloadRepo"
-                            info="info"
-                            infoState="Error"
-                            icon="sap-icon://lightbulb"/>
+                            <StandardTile id="idLivingroomTile" title="" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="reloadRepo" infoStatus="Warning" info="info" icon="sap-icon://lightbulb"/>
                         </items>
                     </FlexBox>
-                    <!-- Cipka Cipka -->
                 </Panel>
                 <Panel>
                     <List id="list" headerText="Products" items="{path: '/temperatures'}">

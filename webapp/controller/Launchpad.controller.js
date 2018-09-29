@@ -10,25 +10,34 @@ sap.ui.define([
         },
         onAfterRendering: function () {
             var oLivingroomTile = this.getView().byId('idLivingroomTile'),
-                status = this.globalData.getProperty("/lights");
-            $.each(status, function (index, value) {
-                if (status[index].name === "Livingroom") {
-                    
+                lightList = this.globalData.getProperty("/lights"),
+             getInfoStatus = function(status)
+            {
+                if (status === "1") return "Success"
+                else if (status === "0") return "Error"
+                else return "Warning"
+            };
+            $.each(lightList, function (index, value) {
+                if (lightList[index].name === "livingroom") {
+                   var lightName = lightList[index].name;
+                   var lightStatus = lightList[0].status;
+
+                   oLivingroomTile.setTitle(lightName);
+                   oLivingroomTile.setInfoState(getInfoStatus(lightStatus));
                 }
             })
         },
+        // getInfoStatus: function(status){
+        //     if (status === "1") return "Success"
+        //     else if (status === "0") return "Error"
+        //     else return "Warning"
+        // },
         reloadRepo: function() {
             $.ajax({
                 type: "POST",
                 url: "./scripts/lolo.py"
             });
         },
-        setTileStatus: function (value) {
-            if (value === "0")
-                return "Error";
-            else
-                return "Succes";
-        }
         //Test3
     });
 });
