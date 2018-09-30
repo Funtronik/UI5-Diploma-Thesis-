@@ -35,7 +35,13 @@ sap.ui.define([
         reloadRepo: function() {
             $.ajax({
                 type: "get",
-                url: "./scripts/lolo.py"
+                url: "./scripts/lolo.py",
+                succes: function(){
+                    console.log('Udało sie');;
+                },
+                error: function(){
+                    console.log('Nie pykło');
+                }
             });
         },
         //Test3
