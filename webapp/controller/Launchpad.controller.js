@@ -34,7 +34,7 @@ sap.ui.define([
         // },
         reloadRepo: function() {
             $.ajax({
-                type: "POST",
+                type: "get",
                 url: "./scripts/lolo.py"
             });
         },
