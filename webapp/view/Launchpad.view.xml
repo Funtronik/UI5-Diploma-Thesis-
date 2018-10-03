@@ -11,8 +11,9 @@
                         </Toolbar>
                     </headerToolbar>
                     <FlexBox alignItems="Start" justifyContent="Start">
-                        <items>
-                            <StandardTile id="idLivingroomTile" title="" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="reloadRepo" infoStatus="Warning" info="info" icon="sap-icon://lightbulb"/>
+                        <items>    
+                            <StandardTile id="idLivingroomTile" title="" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="" infoStatus="Warning" info="info" icon="sap-icon://lightbulb"/>
+                            <StandardTile id="idReloadTile" title="Get Github" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="reloadRepo" infoStatus="Warning" info="info" icon="sap-icon://cause"/>
                         </items>
                     </FlexBox>
                 </Panel>
