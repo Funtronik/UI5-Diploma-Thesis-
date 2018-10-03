@@ -24,6 +24,18 @@ sap.ui.define([
 			this.getRouter().initialize();
 
 			// set the device model
+			this.getData();
+			this.intervalID = setInterval(
+                (function(self) {         //Self-executing func which takes 'this' as self
+                    return function() {   //Return a function in the context of 'self'
+                        self.getData(); //Thing you wanted to run as non-window 'this'
+                    }
+                })(this),
+                10000     //normal interval, 'this' scope not impacted here.
+            ); 
+		},
+		getData: function()
+		{
 			sap.ui.getCore().setModel(models.createDataModel(), 'data');
 		}
 	});

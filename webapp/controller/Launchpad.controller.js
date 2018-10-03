@@ -5,8 +5,7 @@ sap.ui.define([
     return Controller.extend("app.webapp.controller.Launchpad", {
         globalData: null, //1000 for every 10 sec.
         onInit: function () {
-            this.globalData = sap.ui.getCore().getModel('data');
-            this.getView().setModel(this.globalData);
+            
         },
         onAfterRendering: function (oEvent) {
             this.reloadData();
@@ -25,6 +24,9 @@ sap.ui.define([
             ); 
         },
         reloadData: function(){
+            this.globalData = sap.ui.getCore().getModel('data');
+            this.getView().setModel(this.globalData);
+            
             var oLivingroomTile = this.getView().byId('idLivingroomTile'),
                 lightList = this.globalData.getProperty("/lights"),
             getInfoStatus = function(status)
