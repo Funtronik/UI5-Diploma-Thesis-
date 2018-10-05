@@ -2,8 +2,8 @@
 
 $servername = "localhost";
 $username = "luigi";
-$password = "dupadupowata";
-$dbname = "mockdata";
+$password = "raspberry";
+$dbname = "MyHome";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

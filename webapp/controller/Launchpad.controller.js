@@ -10,10 +10,6 @@ sap.ui.define([
         onAfterRendering: function (oEvent) {
             this.reloadData();
             var that = this;
-            // this.intervalHandle = setInterval(function(self) { 
-            //     sap.ui.getCore().getModel('data').refresh();
-            //     self.reloadData();
-            //  },  10000);
              this.intervalID = setInterval(
                 (function(self) {         //Self-executing func which takes 'this' as self
                     return function() {   //Return a function in the context of 'self'
@@ -64,6 +60,5 @@ sap.ui.define([
                 }
             });
         },
-        //Test3
     });
 });
