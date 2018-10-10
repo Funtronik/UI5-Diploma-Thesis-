@@ -1,6 +1,6 @@
 <?php 
 
-$servername = "localhost";
+$servername = "192.168.1.65";
 $username = "luigi";
 $password = "raspberry";
 $dbname = "MyHome";
@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
- $sql = "select * from livingroomtemp";
+ $sql = "select * from temperatures";
  $res = mysqli_query($conn,$sql);
  $resultTemperatures = array();
  

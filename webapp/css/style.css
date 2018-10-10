@@ -15,5 +15,5 @@ button {
     color: ghostwhite;
 }
 .tileLayout {
-	float: left;
+	float: left !important;
 }

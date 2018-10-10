@@ -1,19 +1,28 @@
 <mvc:View controllerName="app.webapp.controller.Launchpad" 
     xmlns="sap.m" 
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" class="myBackgroundStyle">
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core" displayBlock="true" class="myBackgroundStyle">
     <App id="Launchpad">
         <Page title="{i18n>LaunchpadTitle}">
             <content>
                 <Panel>
                     <headerToolbar>
                         <Toolbar>
+                            <core:Icon src="sap-icon://lightbulb" color="#FFFF00"/>
                             <Title level="H2" text="Lights" />
                         </Toolbar>
                     </headerToolbar>
                     <FlexBox alignItems="Start" justifyContent="Start">
-                        <items>    
-                            <StandardTile id="idLivingroomTile" title="" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="" infoStatus="Warning" info="info" icon="sap-icon://lightbulb"/>
-                            <StandardTile id="idReloadTile" title="Get Github" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="reloadRepo" infoStatus="Warning" info="info" icon="sap-icon://cause"/>
+                        <items>
+                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Livingroom" press="onTileClick">
+                                <TileContent footer="Last seen: Error">
+                                        <Switch state="false" press="onTileSwitchLamp" id="idLivingroomSwitch">
+                                            <layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </layoutData>
+                                        </Switch>
+                                </TileContent>
+                            </GenericTile>
                         </items>
                     </FlexBox>
                 </Panel>
