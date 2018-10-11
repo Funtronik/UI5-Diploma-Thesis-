@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "app/webapp/utils/formatter",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, formatter, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "app/model"
+], function (Controller, formatter, JSONModel,models) {
     "use strict";
     return Controller.extend("app.webapp.controller.Launchpad", {
         formatter: formatter,
@@ -10,11 +11,11 @@ sap.ui.define([
 
         _TilesIDs: { //this._TilesIDs[costam]
             "Livingroom": "idLivingroomTile",
-            "Bathroom": "idBathroomTile"
+            "Bedroom": "idBedroomTile"
         },
         _SwitchIDs: {
             "Livingroom": "idLivingroomSwitch",
-            "Bathroom": "idBathroomSwitch"
+            "Bedroom": "idBedroomSwitch"
         },
         onAfterRendering: function (oEvent) {
             this.reloadData();
@@ -44,6 +45,12 @@ sap.ui.define([
                 var oSwitch = thatView.byId(that._SwitchIDs[lightList[index].name]);
                 if (oSwitch) {// do only if bound
                     oSwitch.setState(convertState(lightList[index].state));
+                }
+                var oTile = thatView.byId(that._TilesIDs[lightList[index].name]);
+                if (oTile)
+                {
+                    var date = new Date(lightList[index].changed);
+                    oTile.getTileContent()[0].setFooter(date.toLocaleString());
                 }
             })
         },

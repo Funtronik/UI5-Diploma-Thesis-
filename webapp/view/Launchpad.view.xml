@@ -23,6 +23,15 @@
                                         </Switch>
                                 </TileContent>
                             </GenericTile>
+                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Bedroom" press="onTileClick">
+                                <TileContent footer="Last seen: Error">
+                                        <Switch state="false" press="onTileSwitchLamp" id="idBedroomSwitch">
+                                            <layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </layoutData>
+                                        </Switch>
+                                </TileContent>
+                            </GenericTile>
                         </items>
                     </FlexBox>
                 </Panel>

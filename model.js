@@ -24,5 +24,6 @@ sap.ui.define([
 
 			return json;
 		}
+		
 	};
 });
