@@ -14,22 +14,22 @@
                     </headerToolbar>
                     <FlexBox alignItems="Start" justifyContent="Start">
                         <items>
-                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Livingroom" press="onTileClick">
-                                <TileContent footer="Last seen: Error">
-                                        <Switch state="false" press="onTileSwitchLamp" id="idLivingroomSwitch">
-                                            <layoutData>
-                                                <FlexItemData growFactor="1" />
-                                            </layoutData>
-                                        </Switch>
+                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Livingroom" press="onTileClick">
+                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                    <Switch state="false" press="onTileSwitchLamp" id="idLivingroomSwitch">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1" />
+                                        </layoutData>
+                                    </Switch>
                                 </TileContent>
                             </GenericTile>
-                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Bedroom" press="onTileClick">
+                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop " header="Bedroom" press="onTileClick">
                                 <TileContent footer="Last seen: Error">
-                                        <Switch state="false" press="onTileSwitchLamp" id="idBedroomSwitch">
-                                            <layoutData>
-                                                <FlexItemData growFactor="1" />
-                                            </layoutData>
-                                        </Switch>
+                                    <Switch state="false" press="onTileSwitchLamp" id="idBedroomSwitch">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1" />
+                                        </layoutData>
+                                    </Switch>
                                 </TileContent>
                             </GenericTile>
                         </items>
