@@ -11,7 +11,7 @@
 		"description": "",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.40.12"
+			"version": "1.58.5"
 		}
 	},
 	"sap.ui": {
@@ -42,11 +42,12 @@
 			"id" : "app"
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.58.5",
 			"libs": {
 				"sap.ui.layout": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.m": {},
+				"sap.viz": {}
 			}
 		},
 		"contentDensities": {

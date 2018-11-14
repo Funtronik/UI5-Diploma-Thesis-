@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="Set position" class="sapUiContentPadding" width="100%">
+        <content>
+            <l:HorizontalLayout>
+                <HeaderContainer id="container1">
+                    <NumericContent id="idDialogNumericContent" size="S" scale="%" value="25" />
+                </HeaderContainer>
+                <HeaderContainer id="container2">
+                    <l:VerticalLayout>
+                        <Button id="idDialogUp" width="70px" icon="sap-icon://navigation-up-arrow" press="onDialogButton"/>
+                        <Button id="idDialogDown" width="70px" icon="sap-icon://navigation-down-arrow" press="onDialogButton"/>
+                    </l:VerticalLayout>
+                </HeaderContainer>
+            </l:HorizontalLayout>
+        </content>
+        <buttons>
+            <Button text="Set" press="onSubmitDialog" />
+            <Button text="Cancel" press="onCancelDialog" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

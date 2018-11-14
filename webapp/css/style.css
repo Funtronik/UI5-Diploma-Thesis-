@@ -17,3 +17,6 @@ button {
 .tileLayout {
 	float: left !important;
 }
+.buttonSmall {
+    height: 10px !important;
+}

@@ -7,7 +7,7 @@
                 <content>
                     <FlexBox alignItems="Center" justifyContent="Center" height="100%" width="100%">
                         <items>
-                            <VBox ustifyContent="Center">
+                            <VBox>
                                 <FlexBox alignItems="Center" justifyContent="Center" height="70px" width="100%">
                                     <items>
                                         <VBox>

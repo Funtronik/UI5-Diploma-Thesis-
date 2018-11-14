@@ -1,44 +1,21 @@
 <mvc:View controllerName="app.webapp.controller.Launchpad" 
     xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc" 
-    xmlns:core="sap.ui.core" displayBlock="true" class="myBackgroundStyle">
+    xmlns:core="sap.ui.core" displayBlock="true">
     <App id="Launchpad">
         <Page title="{i18n>LaunchpadTitle}">
             <content>
                 <Panel>
-                    <headerToolbar>
-                        <Toolbar>
-                            <core:Icon src="sap-icon://lightbulb" color="#FFFF00"/>
-                            <Title level="H2" text="Lights" />
-                        </Toolbar>
-                    </headerToolbar>
-                    <FlexBox alignItems="Start" justifyContent="Start">
-                        <items>
-                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Livingroom" press="onTileClick">
-                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
-                                    <Switch state="false" press="onTileSwitchLamp" id="idLivingroomSwitch">
-                                        <layoutData>
-                                            <FlexItemData growFactor="1" />
-                                        </layoutData>
-                                    </Switch>
-                                </TileContent>
-                            </GenericTile>
-                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop " header="Bedroom" press="onTileClick">
-                                <TileContent footer="Last seen: Error">
-                                    <Switch state="false" press="onTileSwitchLamp" id="idBedroomSwitch">
-                                        <layoutData>
-                                            <FlexItemData growFactor="1" />
-                                        </layoutData>
-                                    </Switch>
-                                </TileContent>
-                            </GenericTile>
-                        </items>
-                    </FlexBox>
+                    <core:Fragment fragmentName="app.webapp.view.fragments.Lights" type="XML" />
                 </Panel>
                 <Panel>
-                    <List id="list" headerText="Products" items="{path: '/temperatures'}">
-                        <StandardListItem title="{id}" description="{temp}"/>
-                    </List>
+                    <core:Fragment fragmentName="app.webapp.view.fragments.RollerBlinders" type="XML" />
+                </Panel>
+                <Panel>
+                    <core:Fragment fragmentName="app.webapp.view.fragments.Chart" type="XML" />
+                </Panel>
+                <Panel>
+                    <core:Fragment fragmentName="app.webapp.view.fragments.DeviceTable" type="XML" />
                 </Panel>
             </content>
         </Page>
