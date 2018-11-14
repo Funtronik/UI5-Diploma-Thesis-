@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+    <Table id="idProductsTable" inset="false" items="{/MQTTDevices}">
+        <headerToolbar>
+            <Toolbar>
+                <core:Icon src="sap-icon://share-2" />
+                <Title level="H2" text="MQTT Devices Status" />
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://share-2" press="onRefreshMQTTDevices"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column width="12em">
+                <Text text="Device Name" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <Text text="Device type" />
+            </Column>
+            <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                <Text text="Device IP" />
+            </Column>
+            <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                <Text text="Device State" />
+            </Column>
+            <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                <Text text="Last seen" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <ObjectIdentifier title="{deviceName}"/>
+                    <Text text="{sensorType}" />
+                    <Text text="{deviceIP}" />
+                    <core:Icon src="{path:'deviceStatus', formatter:'.formatter.getStatusIcon'}" />
+                    <!-- <Text text="{ path: 'deviceStatus' formatter: '.formatter.getStatusIcon'}"/> -->
+                    <Text text="{ path: 'LastSeen', formatter: '.formatter.formatData'}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>
