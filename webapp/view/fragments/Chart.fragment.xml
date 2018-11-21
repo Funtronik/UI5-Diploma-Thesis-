@@ -5,24 +5,20 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
     xmlns:viz.data="sap.viz.ui5.data">
-    <viz:VizFrame id="idVizFrame" height='300px' width="100%" vizType='line' title="Temperatures">
-        <viz:dataset>
+            <viz:VizFrame id="idVizFrame" height="300px" width="100%" vizType='line' vizProperties="{ title: {text : 'Temperature and Humidity inside during the day', visible : true}}">
+                <viz:dataset>
                     <viz.data:FlattenedDataset data="{/temperatures}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Time"
-                                value="{time}" />
+                            <viz.data:DimensionDefinition name="Time of day" value="{time}" />
                         </viz.data:dimensions>
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Temperature"
-                                value="{temp}" />
+                            <viz.data:MeasureDefinition name="Temp." value="{temp}" />
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
                 <viz:feeds>
-                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
-                        values="Temperature" />
-                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
-                        values="Time" />
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" values="Temp." />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Time of day" />
                 </viz:feeds>
-    </viz:VizFrame>
+            </viz:VizFrame>
 </core:FragmentDefinition>

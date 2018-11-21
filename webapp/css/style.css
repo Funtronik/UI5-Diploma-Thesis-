@@ -20,3 +20,6 @@ button {
 .buttonSmall {
     height: 10px !important;
 }
+.clockFontSize {
+    font-size: 3rem !important;
+}

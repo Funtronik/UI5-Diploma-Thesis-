@@ -6,7 +6,7 @@
         <content>
             <l:HorizontalLayout>
                 <HeaderContainer id="container1">
-                    <NumericContent id="idDialogNumericContent" size="S" scale="%" value="25" />
+                    <NumericContent id="idDialogNumericContent" size="S" scale="%" value="0" />
                 </HeaderContainer>
                 <HeaderContainer id="container2">
                     <l:VerticalLayout>

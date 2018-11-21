@@ -6,16 +6,13 @@
         <Page title="{i18n>LaunchpadTitle}">
             <content>
                 <Panel>
-                    <core:Fragment fragmentName="app.webapp.view.fragments.Lights" type="XML" />
+                    <core:Fragment fragmentName="app.webapp.view.fragments.Header" type="XML" />
                 </Panel>
                 <Panel>
-                    <core:Fragment fragmentName="app.webapp.view.fragments.RollerBlinders" type="XML" />
+                    <core:Fragment fragmentName="app.webapp.view.fragments.Tiles" type="XML" />
                 </Panel>
                 <Panel>
                     <core:Fragment fragmentName="app.webapp.view.fragments.Chart" type="XML" />
-                </Panel>
-                <Panel>
-                    <core:Fragment fragmentName="app.webapp.view.fragments.DeviceTable" type="XML" />
                 </Panel>
             </content>
         </Page>

@@ -1,0 +1,101 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core">
+
+
+    <FlexBox width="100%">
+        <items>
+            <FlexBox width="70%" direction="Column">
+                <items>
+                    <Toolbar>
+                        <core:Icon src="sap-icon://energy-saving-lightbulb"/>
+                        <Title level="H2" text="Lights" />
+                    </Toolbar>
+                    <FlexBox>
+                        <items>
+                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Livingroom" press="onTileClick">
+                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                    <Switch state="false" change="onTileSwitchLamp" id="idLivingroomSwitch">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1" />
+                                        </layoutData>
+                                    </Switch>
+                                </TileContent>
+                            </GenericTile>
+                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop " header="Bedroom" press="onTileClickRightWindow">
+                                <TileContent footer="Last seen: Error">
+                                    <Switch state="false" change="onTileSwitchLamp" id="idBedroomSwitch">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1" />
+                                        </layoutData>
+                                    </Switch>
+                                </TileContent>
+                            </GenericTile>
+                        </items>
+                    </FlexBox>
+                    <!--  -->
+                    <Toolbar>
+                        <core:Icon src="sap-icon://filter-facets"/>
+                        <Title level="H2" text="Roller Blinds" />
+                    </Toolbar>
+                    <FlexBox>
+                        <items>
+                            <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Left Window" press="onTileClickWindow">
+                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                    <NumericContent value="0%" />
+                                </TileContent>
+                            </GenericTile>
+                            <!--  -->
+                            <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Middle Window" press="onTileClickWindow">
+                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                    <NumericContent value="0%" />
+                                </TileContent>
+                            </GenericTile>
+                            <!--  -->
+                            <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Right Window" press="onTileClickWindow">
+                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                    <NumericContent value="0%" />
+                                </TileContent>
+                            </GenericTile>
+                        </items>
+                    </FlexBox>
+                </items>
+            </FlexBox>
+            <FlexBox width="30%">
+                <items>
+                    <Table id="idProductsTable" inset="false" items="{/MQTTDevices}" width ="380px">
+                        <headerToolbar>
+                            <Toolbar>
+                                <core:Icon src="sap-icon://share-2" />
+                                <Title level="H2" text="MQTT Devices Status" />
+                                <ToolbarSpacer/>
+                                <Button icon="sap-icon://share-2" press="onRefreshMQTTDevices"/>
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="12em">
+                                <Text text="Device Name" />
+                            </Column>
+                            <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                                <Text text="Device State" />
+                            </Column>
+                            <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                                <Text text="Last seen" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{deviceName}" text="{deviceIP}"/>
+                                    <core:Icon src="{path:'deviceStatus', formatter:'.formatter.getStatusIcon'}" />
+                                    <!-- <Text text="{ path: 'deviceStatus' formatter: '.formatter.getStatusIcon'}"/> -->
+                                    <Text text="{LastSeen}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </items>
+            </FlexBox>
+        </items>
+    </FlexBox>
+</core:FragmentDefinition>

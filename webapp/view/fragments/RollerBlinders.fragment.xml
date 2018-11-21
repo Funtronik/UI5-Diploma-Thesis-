@@ -8,26 +8,21 @@
     <FlexBox alignItems="Start" justifyContent="Start">
         <items>
             <!--  -->
-            <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Left Window" press="onTileClick" frameType="TwoByOne">
-                <TileContent footer="Last seen: Error" class ="smallerTileContent" width="80%">
-                    <Slider min="0" max="100" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
-                        <ResponsiveScale tickmarksBetweenLabels="20"/>
-                    </Slider>
+        <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Left Window" press="onTileClickWindow">
+                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                    <NumericContent value="15%" />
                 </TileContent>
             </GenericTile>
             <!--  -->
-            <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Middle Window" press="onTileClick" frameType="TwoByOne">
-                <TileContent footer="Last seen: Error" class ="smallerTileContent" width="20%">
-                    <NumericContent value="30%" />
-                </TileContent>
-                <TileContent class ="smallerTileContent">
-                    <Button text="dupa"/>
+            <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Middle Window" press="onTileClickWindow">
+                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                    <NumericContent value="0%" />
                 </TileContent>
             </GenericTile>
             <!--  -->
-            <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Right Window" press="onTileClickRightWindow">
-                <TileContent footer="Last seen: Error" class ="smallerTileContent" width="20%">
-                    <NumericContent value="12%" />
+            <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Right Window" press="onTileClickWindow">
+                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                    <NumericContent value="0%" />
                 </TileContent>
             </GenericTile>
             <!--  -->

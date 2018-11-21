@@ -1,6 +1,7 @@
 <?php 
 
 $servername = "192.168.1.80";
+//$servername = "localhost";
 $username = "luigi";
 $password = "raspberry";
 $dbname = "MyHome";
@@ -27,22 +28,8 @@ function getDataFromDatabase(){
  		array('id'=>$row[0],'data'=>$row[1],'time'=>$row[2],'temp'=>$row[3],'dummy1'=>$row[4],'dummy2'=>$row[5]));
 	 }
 	 clearSQL();
-	 
-	//lights
- 	$sql = "select * from lights";
- 	$res = mysqli_query($conn,$sql);
-
- 	while($row = mysqli_fetch_array($res)){
-		array_push($resultLights, 
-		array('id'=>$row[0],'name'=>$row[1],'state'=>$row[2],'changed'=>$row[3]));
-	}
-	clearSQL();
 
 	//something else
-}
-function updateLight($lightname){
-	$sql = "update lights set state = !state, * where name ='"+ $lightname + "'";
- 	$res = mysqli_query($conn,$sql);
 }
 function clearSQL() {
 	global $res, $sql;
@@ -51,7 +38,7 @@ function clearSQL() {
 					}
 
 getDataFromDatabase();
-echo json_encode(array('temperatures'=>$resultTemperatures,'lights'=>$resultLights)); 
+echo json_encode(array('temperatures'=>$resultTemperatures)); 
 
 
 ?>

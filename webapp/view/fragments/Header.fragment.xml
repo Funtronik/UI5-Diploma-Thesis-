@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:chart="sap.suite.ui.microchart">
+    <FlexBox alignItems="Center" justifyContent="SpaceBetween" height="6rem">
+        <items>
+            <!--  -->
+            <FlexBox class="sapUiContentPadding"  alignItems="Center" width="20%">
+                <items>
+                    <chart:HarveyBallMicroChart size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
+                        <chart:items>
+                            <chart:HarveyBallMicroChartItem fraction="85" color="Critical" fractionScale="°C"/>
+                        </chart:items>
+                    </chart:HarveyBallMicroChart>
+                     <Label text="Rasp CPU Temp." />
+                </items>
+            </FlexBox>
+            <!--  -->
+            <FlexBox class="sapUiContentPadding" alignItems="Center" width="20%">
+                <items>
+                    <chart:HarveyBallMicroChart size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
+                        <chart:items>
+                            <chart:HarveyBallMicroChartItem fraction="21,4" color="Good" fractionScale="°C"/>
+                        </chart:items>
+                    </chart:HarveyBallMicroChart>
+                    <Label text="Temp. inside" class="sapUiContentPadding"/>
+                </items>
+            </FlexBox>
+            <!--  -->
+            <FlexBox class="sapUiContentPadding" direction="Column" alignItems="Center" width="20%">
+                <items>
+                    <Label text="PM10" class="sapUiContentPadding"/>
+                    <RatingIndicator id="idRIMP10" maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" displayOnly="true"/>
+                    <Label text="PM2,5" class="sapUiContentPadding"/>
+                    <RatingIndicator id="RIMP25" maxValue="5" class="sapUiSmallMarginBottom" value="2" tooltip="Rating Tooltip" displayOnly="true"/>
+                </items>
+            </FlexBox>
+            <!--  -->
+            <FlexBox class="sapUiContentPadding" direction="Column" alignItems="Center" width="20%">
+                <items>
+                    <Label id="idHeaderHour" text = "12:50" class="clockFontSize" />
+                    <Label id="idHeaderDate" text = "November 18, 2018" />
+                </items>
+            </FlexBox>
+            <!--  -->
+        </items>
+    </FlexBox>
+</core:FragmentDefinition>
