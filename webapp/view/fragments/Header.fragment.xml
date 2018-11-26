@@ -8,23 +8,23 @@
             <!--  -->
             <FlexBox class="sapUiContentPadding"  alignItems="Center" width="20%">
                 <items>
-                    <chart:HarveyBallMicroChart size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
+                    <chart:HarveyBallMicroChart id="idOutsideTempHeaderChart" size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
                         <chart:items>
-                            <chart:HarveyBallMicroChartItem fraction="85" color="Critical" fractionScale="°C"/>
+                            <chart:HarveyBallMicroChartItem fraction="0" color="Critical" fractionScale="°C"/>
                         </chart:items>
                     </chart:HarveyBallMicroChart>
-                     <Label text="Rasp CPU Temp." />
+                     <Label text="Outside Temp." />
                 </items>
             </FlexBox>
             <!--  -->
             <FlexBox class="sapUiContentPadding" alignItems="Center" width="20%">
                 <items>
-                    <chart:HarveyBallMicroChart size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
+                    <chart:HarveyBallMicroChart id="idInsideTempHeaderChart" size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
                         <chart:items>
-                            <chart:HarveyBallMicroChartItem fraction="21,4" color="Good" fractionScale="°C"/>
+                            <chart:HarveyBallMicroChartItem fraction="0" color="Good" fractionScale="°C"/>
                         </chart:items>
                     </chart:HarveyBallMicroChart>
-                    <Label text="Temp. inside" class="sapUiContentPadding"/>
+                    <Label text="Inside Temp." class="sapUiContentPadding"/>
                 </items>
             </FlexBox>
             <!--  -->

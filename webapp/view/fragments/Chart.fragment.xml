@@ -7,7 +7,7 @@
     xmlns:viz.data="sap.viz.ui5.data">
             <viz:VizFrame id="idVizFrame" height="300px" width="100%" vizType='line' vizProperties="{ title: {text : 'Temperature and Humidity inside during the day', visible : true}}">
                 <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/temperatures}">
+                    <viz.data:FlattenedDataset data="{/RoomTemperatures}">
                         <viz.data:dimensions>
                             <viz.data:DimensionDefinition name="Time of day" value="{time}" />
                         </viz.data:dimensions>

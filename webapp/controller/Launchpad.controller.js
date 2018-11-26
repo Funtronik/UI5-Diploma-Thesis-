@@ -106,12 +106,15 @@ sap.ui.define([
         onRefreshMQTTDevices: function () {
             this.sendMQTTMessage("test", "MQTTQ/testled");
             this.sendMQTTMessage("test", "MQTTQ/rollerBlinder");
+            this.sendMQTTMessage("test", "MQTTQ/Temperature");
         },
         onMQTTConnect: function () {
+            
             console.log("Connected to MQTT");
             mqtt.subscribe("MQTTA/testled");
             mqtt.subscribe("MQTTA/testled2");
             mqtt.subscribe("MQTTA/rollerBlinder");
+            mqtt.subscribe("MQTTA/Temperature");
         },
         onConnectionLost: function (responseObject) {
             if (responseObject.errorCode !== 0) {
@@ -147,12 +150,13 @@ sap.ui.define([
             // section for MySQL database
             this.globalData = sap.ui.getCore().getModel('data');
             this.getView().setModel(this.globalData);
-            var temperatures = this.globalData.getProperty("/temperatures");
-
+            var RoomTemperatures = this.globalData.getProperty("/RoomTemperatures");
+            var OutsideTemperatures = this.globalData.getProperty("/OutsideTemperatures");
             // section for MQTT devices
             var JSONModel = new sap.ui.model.json.JSONModel();
             JSONModel.setProperty('/MQTTDevices', devices);
-            JSONModel.setProperty('/temperatures', temperatures);
+            JSONModel.setProperty('/RoomTemperatures', RoomTemperatures);
+            JSONModel.setProperty('/OutsideTemperatures', OutsideTemperatures);
             this.getView().setModel(JSONModel);
 
             // set switches state
@@ -192,30 +196,36 @@ sap.ui.define([
 
             $.each(devices, function(key,value){
                 var line = devices[key];
-                if (line.deviceName === 'LeftWindow')
-                {
-                    oLeftWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
-                    oLeftWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
-                }else if (line.deviceName ==='MiddleWindow')
-                {
-                    oMiddleWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
-                    oMiddleWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
-                }else if (line.deviceName ==='RightWindow')
-                {
-                    oRightWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
-                    oRightWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
+                switch (key.deviceName) {
+                    case 'LeftWindow':
+                        oLeftWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
+                        oLeftWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
+                        break;
+                    case 'MiddleWindow':
+                        oMiddleWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
+                        oMiddleWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
+                        break;
+                    case 'RightWindow':
+                        oRightWindowRoller.getTileContent()[0].getContent().setValue(line.LogicState+"%");
+                        oRightWindowRoller.getTileContent()[0].setFooter("Last seen: " + line.LastSeen);
+                        break;
                 }
             });
-            
+
+            // set Header atrubites
+            var oHeaderInsideTempChart = this.getView().byId('idInsideTempHeaderChart'),
+            oHeaderInsideTempChartItem = oHeaderInsideTempChart.getItems()[0];
+            oHeaderInsideTempChartItem.setFraction(parseFloat(RoomTemperatures[RoomTemperatures.length-1].temp));
+
+            var oHeaderOutsideTempChart = this.getView().byId('idOutsideTempHeaderChart'),
+            oHeaderOutsideTempChartItem = oHeaderOutsideTempChart.getItems()[0];
+            oHeaderOutsideTempChartItem.setFraction(parseFloat(OutsideTemperatures[OutsideTemperatures.length-1].temp));
         },
         onTileSwitchLamp: function (oEvent) {
             var oControl = oEvent.oSource.oParent.oParent;
             var oControlTitle = oControl._oTitle.getProperty('text');
             var switchState = oEvent.oSource.getState();
             this.sendMQTTMessage(switchState ? "1" : "0", "MyHome/testled1");
-        },
-        onTileClick: function (oEvent) {
-
         },
         onMessageArrived: function (message) {
             // console.log("onMessageArrived:"+message.payloadString);
@@ -238,6 +248,39 @@ sap.ui.define([
                                 devices[key].LastSeen = currentDateTime;
 
                                 devices[key].LogicState = properties.LogicState;
+                                bFound = true;
+                                return;
+                            }
+                        }
+                    });
+                } else {
+                    devices.push(properties);
+                    devices[devices.length - 1].deviceStatus = true;
+                    bFound = true;
+                }
+                if (!bFound) {
+                    devices.push(properties);
+                    devices[devices.length - 1].deviceStatus = true;
+                }
+            }
+            if (properties.sensorType === 'Sensor')
+            {
+                if (devices.length > 0) {
+                    $.each(devices, function (key, value) {
+                        if (value) {
+                            var line = devices[key];
+                            if (line.deviceName === properties.deviceName) {
+                                devices[key].deviceStatus = true;
+
+                                var today = new Date();
+                                var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
+                                    pattern: "HH:mm"
+                                });
+                                var currentDateTime = oDateFormat.format(today);
+                                devices[key].LastSeen = currentDateTime;
+
+                                devices[key].Temperature = properties.Temp;
+                                devices[key].Humidity = properties.Hum;
                                 bFound = true;
                                 return;
                             }
@@ -317,7 +360,7 @@ sap.ui.define([
                 type: "get",
                 url: "./scripts/lolo.py",
                 succes: function () {
-                    console.log('Udało sie');;
+                    console.log('Udało sie');
                 },
                 error: function () {
                     console.log('Nie pykło');
