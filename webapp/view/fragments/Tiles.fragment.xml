@@ -14,7 +14,7 @@
                     <FlexBox>
                         <items>
                             <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Livingroom" press="onTileClick">
-                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <Switch state="false" change="onTileSwitchLamp" id="idLivingroomSwitch">
                                         <layoutData>
                                             <FlexItemData growFactor="1" />
@@ -23,7 +23,7 @@
                                 </TileContent>
                             </GenericTile>
                             <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop " header="Bedroom" press="onTileClickRightWindow">
-                                <TileContent footer="Last seen: Error">
+                                <TileContent footer="Last seen: Disc.">
                                     <Switch state="false" change="onTileSwitchLamp" id="idBedroomSwitch">
                                         <layoutData>
                                             <FlexItemData growFactor="1" />
@@ -41,19 +41,19 @@
                     <FlexBox>
                         <items>
                             <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Left Window" press="onTileClickWindow">
-                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
                             </GenericTile>
                             <!--  -->
                             <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Middle Window" press="onTileClickWindow">
-                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
                             </GenericTile>
                             <!--  -->
                             <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Right Window" press="onTileClickWindow">
-                                <TileContent footer="Last seen: Error" class ="smallerTileContent">
+                                <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
                             </GenericTile>
