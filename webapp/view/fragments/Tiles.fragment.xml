@@ -1,11 +1,11 @@
 <core:FragmentDefinition xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc" 
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core" >
 
 
     <FlexBox width="100%">
         <items>
-            <FlexBox width="70%" direction="Column">
+            <FlexBox width="60%" direction="Column">
                 <items>
                     <Toolbar>
                         <core:Icon src="sap-icon://energy-saving-lightbulb"/>
@@ -61,7 +61,7 @@
                     </FlexBox>
                 </items>
             </FlexBox>
-            <FlexBox width="30%">
+            <FlexBox width="40%">
                 <items>
                     <Table id="idProductsTable" inset="false" items="{/MQTTDevices}" width ="380px">
                         <headerToolbar>

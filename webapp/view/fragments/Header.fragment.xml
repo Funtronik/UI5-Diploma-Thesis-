@@ -39,8 +39,8 @@
             <!--  -->
             <FlexBox class="sapUiContentPadding" direction="Column" alignItems="Center" width="20%">
                 <items>
-                    <Label id="idHeaderHour" text = "12:50" class="clockFontSize" />
-                    <Label id="idHeaderDate" text = "November 18, 2018" />
+                    <Label id="idHeaderHour" text = "00:00" class="clockFontSize" />
+                    <Label id="idHeaderDate" text = "" />
                 </items>
             </FlexBox>
             <!--  -->

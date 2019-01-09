@@ -2,8 +2,8 @@
     xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns:core="sap.ui.core" displayBlock="true">
-    <App id="Launchpad">
-        <Page title="{i18n>LaunchpadTitle}">
+    <App id="Launchpad" >
+        <Page id = "LaunchpadPage" title="{i18n>LaunchpadTitle}" class="transparentBackground" >
             <content>
                 <Panel>
                     <core:Fragment fragmentName="app.webapp.view.fragments.Header" type="XML" />

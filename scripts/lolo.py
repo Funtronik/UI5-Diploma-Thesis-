@@ -26,12 +26,12 @@ if os.path.isdir(ui5folder):
     
     git.Git("/var/www/html").clone(repoPath)
     unpackFiles()
-    print("Deleted and Imported");
+    print("Deleted and Imported")
 else:
     deleteFirst()
     git.Git("/var/www/html").clone(repoPath)
     unpackFiles()
-    print("Just Imported");
+    print("Just Imported")
 
 
 # //////////////////////////////////////////////////////////////////////

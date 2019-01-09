@@ -28,6 +28,7 @@ sap.ui.define([
                 devices = [];
             },
             onAfterRendering: function (oEvent) {
+                this.getView().byId('Launchpad').setBackgroundOpacity(0);
                 this.reloadData();
                 this.getDate();
                 this.getHour();
@@ -119,7 +120,7 @@ sap.ui.define([
                 mqtt.onMessageArrived = this.onMessageArrived;
                 mqtt.onConnectionLost = this.onConnectionLost;
                 var options = {
-                    timeout: 5,
+                    timeout: 1,
                     keepAliveInterval: 30,
                     onSuccess: this.onMQTTConnect
                 };

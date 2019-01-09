@@ -23,3 +23,7 @@ button {
 .clockFontSize {
     font-size: 3rem !important;
 }
+.transparentBackground {
+    background: linear-gradient(to bottom,#51606d,#c7dff5);
+    opacity: 1.0;
+}
