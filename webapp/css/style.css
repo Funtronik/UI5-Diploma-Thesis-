@@ -27,3 +27,11 @@ button {
     background: linear-gradient(to bottom,#51606d,#c7dff5);
     opacity: 1.0;
 }
+.roundedControl {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	background-color: #ffffff;
+	display: inline-block;
+	transition-duration: 0.2s;
+	margin: 0.2rem;
+	border-radius: 15px;
+}

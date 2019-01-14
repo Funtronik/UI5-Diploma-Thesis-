@@ -28,7 +28,6 @@ sap.ui.define([
                 devices = [];
             },
             onAfterRendering: function (oEvent) {
-                this.getView().byId('Launchpad').setBackgroundOpacity(0);
                 this.reloadData();
                 this.getDate();
                 this.getHour();

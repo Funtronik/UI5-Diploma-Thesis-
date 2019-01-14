@@ -1,11 +1,11 @@
-<core:FragmentDefinition xmlns="sap.m" 
-    xmlns:mvc="sap.ui.core.mvc" 
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core" >
 
 
-    <FlexBox width="100%">
+    <FlexBox width="100%" justifyContent="SpaceBetween">
         <items>
-            <FlexBox width="60%" direction="Column">
+            <FlexBox direction="Column">
                 <items>
                     <Toolbar>
                         <core:Icon src="sap-icon://energy-saving-lightbulb"/>
@@ -13,7 +13,7 @@
                     </Toolbar>
                     <FlexBox>
                         <items>
-                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Livingroom" press="onTileClick">
+                            <GenericTile id="idLivingroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop roundedControl" header="Livingroom" press="onTileClick">
                                 <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <Switch state="false" change="onTileSwitchLamp" id="idLivingroomSwitch">
                                         <layoutData>
@@ -22,7 +22,7 @@
                                     </Switch>
                                 </TileContent>
                             </GenericTile>
-                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop " header="Bedroom" press="onTileClickRightWindow">
+                            <GenericTile id="idBedroomTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop roundedControl" header="Bedroom" press="onTileClickRightWindow">
                                 <TileContent footer="Last seen: Disc.">
                                     <Switch state="false" change="onTileSwitchLamp" id="idBedroomSwitch">
                                         <layoutData>
@@ -40,19 +40,19 @@
                     </Toolbar>
                     <FlexBox>
                         <items>
-                            <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Left Window" press="onTileClickWindow">
+                            <GenericTile id="idLeftWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop roundedControl" header="Left Window" press="onTileClickWindow">
                                 <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
                             </GenericTile>
                             <!--  -->
-                            <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Middle Window" press="onTileClickWindow">
+                            <GenericTile id="idMiddleWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop roundedControl" header="Middle Window" press="onTileClickWindow">
                                 <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
                             </GenericTile>
                             <!--  -->
-                            <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Right Window" press="onTileClickWindow">
+                            <GenericTile id="idRightWindowRoller" class="sapUiTinyMarginBegin sapUiTinyMarginTop roundedControl" header="Right Window" press="onTileClickWindow">
                                 <TileContent footer="Last seen: Disc." class ="smallerTileContent">
                                     <NumericContent value="0%" />
                                 </TileContent>
@@ -61,9 +61,9 @@
                     </FlexBox>
                 </items>
             </FlexBox>
-            <FlexBox width="40%">
+            <FlexBox>
                 <items>
-                    <Table id="idProductsTable" inset="false" items="{/MQTTDevices}" width ="380px">
+                    <Table id="idProductsTable" class="roundedControl" inset="false" items="{/MQTTDevices}" width ="380px">
                         <headerToolbar>
                             <Toolbar>
                                 <core:Icon src="sap-icon://share-2" />

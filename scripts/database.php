@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $servername = "";
 $username = "luigi";
@@ -35,34 +35,49 @@ class CheckDevice {
 $ip_addr = "192.168.1.80";
 if ((new CheckDevice())->ping($ip_addr))
 	$servername = "192.168.1.80";
-else 
+else
 	$servername = "localhost";
 
 function getDataFromDatabase(){
 	global $resultRoomTemperatures, $resultOutsideTemperatures, $sql, $res, $conn, $date;
 
  	$sql = "SELECT id, date, time, temp, hum, dummy2 FROM roomtemperatures WHERE date = CURDATE() ORDER BY date asc, time asc";
- 	$res = mysqli_query($conn,$sql);
+	 $res = mysqli_query($conn,$sql);
 
-	 while($row = mysqli_fetch_array($res)){
- 		array_push($resultRoomTemperatures, 
+	 	while($row = mysqli_fetch_array($res)){
+ 		array_push($resultRoomTemperatures,
  		array('id'=>$row[0],'date'=>$row[1],'time'=>$row[2],'temp'=>$row[3],'hum'=>$row[4],'dummy2'=>$row[5]));
-	 }
-	 
+		 }
+
 	$sql = "SELECT id, date, time, temp, hum, dummy2 FROM outsidetemperatures WHERE date= CURDATE() ORDER BY date asc, time asc";
- 	$res = mysqli_query($conn,$sql);
+	 $res = mysqli_query($conn,$sql);
 
 	 while($row = mysqli_fetch_array($res)){
- 		array_push($resultOutsideTemperatures, 
+ 		array_push($resultOutsideTemperatures,
  		array('id'=>$row[0],'date'=>$row[1],'time'=>$row[2],'temp'=>$row[3],'hum'=>$row[4],'dummy2'=>$row[5]));
 	 }
+
 	 clearSQL();
 	 mysqli_close($conn);
 }
 function clearSQL() {
 	global $res, $sql;
 	$res = null;
-	$sql = "";	
+	$sql = "";
+}
+function checkIfDataFetched(){
+	global $resultOutsideTemperatures, $resultRoomTemperatures;
+
+	if (count($resultOutsideTemperatures) == 0)
+	{
+		array_push($resultOutsideTemperatures,
+		array('id'=>"1",'date'=>"01.01.1990",'time'=>"12:00:00",'temp'=>"30",'hum'=>"20",'dummy2'=>"..."));
+	}
+	if (count($resultRoomTemperatures) == 0)
+	{
+		array_push($resultRoomTemperatures,
+		array('id'=>"1",'date'=>"01.01.1990",'time'=>"12:00:00",'temp'=>"30",'hum'=>"20",'dummy2'=>"..."));
+	}
 }
 
 // Create connection
@@ -72,10 +87,11 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 getDataFromDatabase();
+checkIfDataFetched();
 
 $dataToJson = array();
 $dataToJson['RoomTemperatures'] = $resultRoomTemperatures;
 $dataToJson['OutsideTemperatures'] = $resultOutsideTemperatures;
-echo json_encode($dataToJson); 
+echo json_encode($dataToJson);
 
 ?>

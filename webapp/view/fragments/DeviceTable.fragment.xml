@@ -1,6 +1,6 @@
-<core:FragmentDefinition xmlns="sap.m" 
+<core:FragmentDefinition xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <Table id="idProductsTable" inset="false" items="{/MQTTDevices}">
+    <Table id="idProductsTable" class="roundedControl" inset="false" items="{/MQTTDevices}" width="100%">
         <headerToolbar>
             <Toolbar>
                 <core:Icon src="sap-icon://share-2" />

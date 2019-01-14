@@ -1,26 +1,28 @@
-<core:FragmentDefinition xmlns="sap.m" 
-    xmlns:core="sap.ui.core" 
-    xmlns:viz="sap.viz.ui5.controls" 
-    xmlns:layout="sap.ui.layout" 
-    xmlns:mvc="sap.ui.core.mvc" 
-    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" 
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data">
-            <viz:VizFrame id="idVizFrame" height="300px" width="100%" vizType='line' vizProperties="{ title: {text : 'Temperature and Humidity inside during the day', visible : true}}">
-                <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/RoomTemperatures}">
-                        <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Time of day" value="{time}" />
-                        </viz.data:dimensions>
-                        <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Temp." value="{temp}" />
-                            <viz.data:MeasureDefinition name="Hum." value="{hum}" />
-                        </viz.data:measures>
-                    </viz.data:FlattenedDataset>
-                </viz:dataset>
-                <viz:feeds>
-                    <viz.feeds:FeedItem id='valueAxisFeedTemp' uid="valueAxis" type="Measure" values="Temp." />
-                    <viz.feeds:FeedItem id='valueAxisFeedHum' uid="valueAxis" type="Measure" values="Hum." />
-                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Time of day" />
-                </viz:feeds>
-            </viz:VizFrame>
+    <Panel backgroundDesign="Solid" class="roundedControl">
+        <viz:VizFrame id="idVizFrame" height="300px" width="100%" vizType='line' vizProperties="{ title: {text : 'Temperature and Humidity inside during the day', visible : true}}">
+            <viz:dataset>
+                <viz.data:FlattenedDataset data="{/RoomTemperatures}">
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition name="Time of day" value="{time}" />
+                    </viz.data:dimensions>
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition name="Temp." value="{temp}" />
+                        <viz.data:MeasureDefinition name="Hum." value="{hum}" />
+                    </viz.data:measures>
+                </viz.data:FlattenedDataset>
+            </viz:dataset>
+            <viz:feeds>
+                <viz.feeds:FeedItem id='valueAxisFeedTemp' uid="valueAxis" type="Measure" values="Temp." />
+                <viz.feeds:FeedItem id='valueAxisFeedHum' uid="valueAxis" type="Measure" values="Hum." />
+                <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Time of day" />
+            </viz:feeds>
+        </viz:VizFrame>
+    </Panel>
 </core:FragmentDefinition>
