@@ -3,11 +3,12 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
-    xmlns:chart="sap.suite.ui.microchart">
+    xmlns:chart="sap.suite.ui.microchart"
+    xmlns:si="sap.suite.ui.commons.statusindicator">
     <FlexBox alignItems="Center" height="6.5rem" justifyContent="SpaceBetween">
         <items>
             <!--  -->
-            <Panel class="roundedControl" backgroundDesign="Solid" height="50%">
+            <Panel class="roundedControl" backgroundDesign="Translucent" height="50%" visible="false">
                 <FlexBox alignItems="Center" width="100%" height="50%">
                     <items>
                         <chart:HarveyBallMicroChart id="idOutsideTempHeaderChart" size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
@@ -20,7 +21,7 @@
                 </FlexBox>
             </Panel>
             <!--  -->
-            <Panel class="roundedControl" backgroundDesign="Solid">
+            <Panel class="roundedControl" backgroundDesign="Translucent" visible="false">
                 <FlexBox alignItems="Center" width="100%">
                     <items>
                         <chart:HarveyBallMicroChart id="idInsideTempHeaderChart" size="M" total="100" totalScale="°C" showTotal="false" showFractions="true" press="press">
@@ -33,19 +34,105 @@
                 </FlexBox>
             </Panel>
             <!--  -->
-            <Panel class="roundedControl" backgroundDesign="Solid">
+            <Panel class="roundedControl" backgroundDesign="Translucent">
                 <FlexBox alignItems="Center" justifyContent="Center">
                     <items>
-                        <Label text="PM2.5" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
-                        <ProgressIndicator percentValue="130" displayValue="130%" showValue="true" state="Error" width="30px"/>
-                        <Label/>
-                        <Label text="PM10" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
-                        <ProgressIndicator percentValue="30" displayValue="30%" showValue="true" state="Success" width="30px"/>
+                        <si:StatusIndicator id="idOutsideTempIndicator" value="0" width="80px" height="80px" class="SICursorStyle" press="onPressStatusIndicator">
+                            <si:propertyThresholds>
+                                <si:PropertyThreshold fillColor="Good" toValue="25"/>
+                                <si:PropertyThreshold fillColor="Critical" toValue="230"/>
+                                <si:PropertyThreshold fillColor="Error" toValue="50"/>
+                            </si:propertyThresholds>
+                            <si:ShapeGroup>
+                                <si:LibraryShape shapeId="thermo"/>
+                            </si:ShapeGroup>
+                        </si:StatusIndicator>
+                        <FlexBox alignItems="Center" direction="Column">
+                            <items>
+                                <Label text="100°C" id="idOutsideTempLabel" class="temperatureLabel sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                                <Label text="Outside Temp." class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                            </items>
+                        </FlexBox>
+
+                    </items>
+                </FlexBox>
+            </Panel>
+            <Panel class="roundedControl" backgroundDesign="Translucent">
+                <FlexBox alignItems="Center" justifyContent="Center">
+                    <items>
+                        <si:StatusIndicator id="idInsideTempIndicator" value="0" width="80px" height="80px" class="SICursorStyle" press="onPressStatusIndicator">
+                            <si:propertyThresholds>
+                                <si:PropertyThreshold fillColor="Good" toValue="25"/>
+                                <si:PropertyThreshold fillColor="Critical" toValue="230"/>
+                                <si:PropertyThreshold fillColor="Error" toValue="50"/>
+                            </si:propertyThresholds>
+                            <si:ShapeGroup>
+                                <si:LibraryShape shapeId="thermo"/>
+                            </si:ShapeGroup>
+                        </si:StatusIndicator>
+                        <FlexBox alignItems="Center" direction="Column">
+                            <items>
+                                <Label text="--.--°C" id="idInsideTempLabel" class="temperatureLabel sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                                <Label text="Inside Temp." class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                            </items>
+                        </FlexBox>
+
                     </items>
                 </FlexBox>
             </Panel>
             <!--  -->
-            <Panel class="roundedControl" backgroundDesign="Solid" width="200px">
+            <Panel class="roundedControl" backgroundDesign="Translucent">
+                <FlexBox alignItems="Center" justifyContent="Center">
+                    <items>
+                        <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+                            <items>
+                                <Label text="Preasure" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                                <si:StatusIndicator value="50" width="40px" height="40px" class="SICursorStyle" press="onPressStatusIndicator">
+                                    <si:propertyThresholds>
+                                        <si:PropertyThreshold fillColor="Error" toValue="999"/>
+                                        <si:PropertyThreshold fillColor="Critical" toValue="1002"/>
+                                        <si:PropertyThreshold fillColor="Good" toValue="1005"/>
+                                    </si:propertyThresholds>
+                                    <si:ShapeGroup>
+                                        <si:LibraryShape shapeId="speed"/>
+                                    </si:ShapeGroup>
+                                </si:StatusIndicator>
+                                <Label text="0hPa" id="idPressureLabel" class="sapUiTinyMarginBegin sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+                            </items>
+                        </FlexBox>
+                        <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+                            <items>
+                                <Label text="Hum" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                                <si:StatusIndicator value="50" width="40px" height="40px" class="SICursorStyle" press="onPressStatusIndicator">
+                                    <si:propertyThresholds>
+                                        <si:PropertyThreshold fillColor="Error" toValue="25"/>
+                                        <si:PropertyThreshold fillColor="Critical" toValue="60"/>
+                                        <si:PropertyThreshold fillColor="Good" toValue="100"/>
+                                    </si:propertyThresholds>
+                                    <si:ShapeGroup>
+                                        <si:LibraryShape shapeId="drop"/>
+                                    </si:ShapeGroup>
+                                </si:StatusIndicator>
+                                <Label text="0%" id="idHumidityLabel" class="sapUiTinyMarginBegin sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+                            </items>
+                        </FlexBox>
+                    </items>
+                </FlexBox>
+            </Panel>
+            <!--  -->
+            <Panel class="roundedControl" backgroundDesign="Translucent">
+                <FlexBox alignItems="Center" justifyContent="Center">
+                    <items>
+                        <Label text="PM2.5" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                        <ProgressIndicator id="idPM25" percentValue="0" displayValue="0%" showValue="true" state="Error" width="30px"/>
+                        <Label/>
+                        <Label text="PM10" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                        <ProgressIndicator id="idPM10" percentValue="0" displayValue="0%" showValue="true" state="Success" width="30px"/>
+                    </items>
+                </FlexBox>
+            </Panel>
+            <!--  -->
+            <Panel class="roundedControl" backgroundDesign="Translucent" width="200px">
                 <FlexBox class="sapUiContentPadding" direction="Column" alignItems="Center" width="100%">
                     <items>
                         <Label id="idHeaderHour" text = "00:00" class="clockFontSize" />

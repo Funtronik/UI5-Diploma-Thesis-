@@ -5,7 +5,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data">
-    <Panel backgroundDesign="Solid" class="roundedControl">
+    <Panel backgroundDesign="Translucent" class="roundedControl">
         <viz:VizFrame id="idVizFrame" height="300px" width="100%" vizType='line' vizProperties="{ title: {text : 'Temperature and Humidity inside during the day', visible : true}}">
             <viz:dataset>
                 <viz.data:FlattenedDataset data="{/RoomTemperatures}">
